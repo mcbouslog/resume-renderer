@@ -4,6 +4,13 @@ class PdfResumesController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = ResumePdf.new()
+        send_data pdf.render, filename: "resume.pdf", type: "application/pdf", disposition: "inline"
+      end
+    end
   end
   
 end
