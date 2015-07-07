@@ -1,0 +1,2 @@
+module PdfResumesHelper
+end
